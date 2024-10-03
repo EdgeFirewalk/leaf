@@ -1,0 +1,19 @@
+.button {
+  padding: 12px 30px;
+
+  color: var(--darkBrown);
+  background-color: var(--lightBrown);
+
+  border: 1px solid var(--lightBrown);
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  transition-property: color, background-color;
+  transition-duration: 0.2s;
+
+  &:hover {
+    color: var(--lightBrown);
+    background-color: transparent;
+  }
+}
