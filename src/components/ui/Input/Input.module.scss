@@ -1,0 +1,43 @@
+.input {
+  padding: 12px 18px;
+
+  color: var(--lightBrown);
+  background-color: var(--transparentLightBrown);
+
+  border: 1px solid var(--lightBrown);
+  border-radius: 10px;
+
+  outline: none;
+
+  &::placeholder {
+    color: var(--lightBrown);
+  }
+
+  &.invalid {
+    color: var(--red);
+    background-color: var(--transparentRed);
+    border-color: var(--red);
+
+    &::placeholder {
+      color: var(--red);
+    }
+  }
+}
+
+.errorText {
+  margin-top: 5px;
+  padding: 0 5px;
+  height: 0;
+
+  font-size: 12px;
+
+  color: var(--red);
+
+  opacity: 0;
+
+  &.visible {
+    height: 100%;
+
+    opacity: 1;
+  }
+}
