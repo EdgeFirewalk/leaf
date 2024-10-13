@@ -9,11 +9,19 @@
 
   cursor: pointer;
 
-  transition-property: color, background-color;
+  transition-property: color, background-color, border;
   transition-duration: 0.2s;
 
   &:hover {
     color: var(--lightBrown);
     background-color: transparent;
+  }
+
+  &:disabled {
+    color: var(--red);
+    background-color: var(--transparentRed);
+    border-color: var(--red);
+
+    cursor: default;
   }
 }
