@@ -1,0 +1,33 @@
+.letter {
+  width: 47px;
+  height: 47px;
+  margin: 2px;
+
+  color: var(--lightBrown);
+  background-color: transparent;
+  border: 1px solid var(--lightBrown);
+  border-radius: 5px;
+
+  &.default {
+    cursor: pointer;
+  }
+
+  &.wrong {
+    color: var(--red);
+    border: 1px solid var(--red);
+  }
+
+  &.right {
+    color: green;
+    border: 1px solid green;
+  }
+
+  &.underline {
+    border: none;
+  }
+
+  &.hidden {
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
