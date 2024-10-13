@@ -1,6 +1,9 @@
 :root {
   --background: #014738;
   --lightBrown: #efe3c8;
+  --transparentLightBrown: rgba(239, 227, 200, 0.2);
   --darkBrown: #4a2b29;
   --modalMask: rgba(0, 0, 0, 0.6);
+  --red: #e45c4a;
+  --transparentRed: rgba(228, 92, 74, 0.4);
 }
