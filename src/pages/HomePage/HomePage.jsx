@@ -5,7 +5,7 @@ import styles from './HomePage.module.scss';
 
 import Leaf from '../../img/leaf.png';
 
-import Modal from '../../components/ui/Modal/Modal';
+import WordInputModal from '../../components/ui/Modal/WordInputModal/WordInputModal';
 import Container from '../../components/layout/Container/Container';
 import Button from '../../components/ui/Button/Button';
 
@@ -26,15 +26,18 @@ const HomePage = () => {
       navigate('/game', { state: { word: 'Случайное' } });
     }
 
-    // TODO: Кинуть на страницу GamePage вместе с wordToGuess
+    navigate('/game', { state: { word: wordToGuess } });
   };
 
   return (
     <>
-      <Modal
+      <WordInputModal
         isOpen={isWordInputModalOpen}
         toggleModal={toggleWordInputModal}
-      ></Modal>
+        wordToGuess={wordToGuess}
+        setWordToGuess={setWordToGuess}
+        startGame={startGame}
+      />
       <Container>
         <div className={styles.page}>
           <div className={styles.logo}>
