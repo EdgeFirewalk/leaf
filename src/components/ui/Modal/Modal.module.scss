@@ -24,10 +24,14 @@
 }
 
 .body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 15px 20px;
   scale: 0;
 
-  background-color: var(--lightBrown);
+  background-color: var(--background);
   border-radius: 15px;
 
   transition-property: scale;
