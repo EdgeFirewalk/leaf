@@ -13,13 +13,13 @@ const GamePage = () => {
       // TODO: Перенаправить на ErrorPage
     }
 
-    setWord(location.state.word);
+    setWord(location.state.word.toUpperCase());
   }, []);
 
   return (
     <div>
       <Container>
-        <p>The word is: {word}</p>
+        <p>Загаданное слово: {word}</p>
       </Container>
     </div>
   );
