@@ -1,0 +1,23 @@
+.closeButton {
+  align-self: flex-end;
+  width: 46px;
+  height: 46px;
+  padding: 0 !important;
+
+  color: var(--lightBrown) !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.title {
+  margin: 30px 0 10px 0;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+
+  margin-bottom: 25px;
+}
