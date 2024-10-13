@@ -1,0 +1,17 @@
+.wrongLetters {
+  width: fit-content;
+  margin: 10px auto;
+}
+
+.word {
+  width: fit-content;
+  margin: 5px auto;
+}
+
+.allLetters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0;
+}
