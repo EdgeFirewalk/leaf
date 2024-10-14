@@ -24,6 +24,7 @@ const HomePage = () => {
       // TODO: Сгенерировать слово и перекинуть на GamePage с ним
 
       navigate('/game', { state: { word: 'Случайное' } });
+      return;
     }
 
     navigate('/game', { state: { word: wordToGuess } });
@@ -45,7 +46,11 @@ const HomePage = () => {
             <p className={styles.logoText}>Лист</p>
           </div>
           <div className={styles.buttons}>
-            <Button className={styles.button} onClick={(e) => startGame(true)}>
+            <Button
+              className={styles.button}
+              onClick={(e) => startGame(true)}
+              disabled
+            >
               Случайное слово
             </Button>
             <Button
