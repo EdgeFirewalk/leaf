@@ -1,11 +1,23 @@
+.tries {
+  text-align: center;
+  font-size: 21px;
+  margin: 5px 0 10px 0;
+}
+
 .wrongLetters {
-  width: fit-content;
-  margin: 10px auto;
+  padding-bottom: 5px;
+
+  border-bottom: 1px solid var(--lightBrown);
 }
 
 .word {
   width: fit-content;
-  margin: 5px auto;
+  margin: 20px auto;
+  padding: 5px 2px;
+
+  background-color: var(--lightGreen);
+  border-top: 1px solid var(--lightBrown);
+  border-bottom: 1px solid var(--lightBrown);
 }
 
 .allLetters {
@@ -13,5 +25,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin: 5px 0;
+  padding-top: 5px;
+
+  border-top: 1px solid var(--lightBrown);
 }

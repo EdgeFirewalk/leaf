@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 import styles from './GamePage.module.scss';
 
+import GameOverModal from '../../components/ui/Modal/GameOverModal/GameOverModal';
 import Container from '../../components/layout/Container/Container';
 import Letter from '../../components/ui/Letter/Letter';
 
@@ -11,6 +12,7 @@ const GamePage = () => {
 
   const [word, setWord] = useState('');
   const [triesLeft, setTriesLeft] = useState(5);
+  const [hasWon, setHasWon] = useState(false);
 
   const [checkedLetters, setCheckedLetters] = useState([]);
   const [rightLetters, setRightLetters] = useState([]);
@@ -18,8 +20,8 @@ const GamePage = () => {
 
   const [isGameOverModalOpen, setIsGameOverModalOpen] = useState(false);
 
-  const toggleGameOverModal = () => {
-    console.log('Player has WON or LOST!');
+  const toggleGameOverModal = (hasWonTheGame) => {
+    setHasWon(hasWonTheGame);
     setIsGameOverModalOpen(true);
   };
 
@@ -42,7 +44,7 @@ const GamePage = () => {
 
         // Проверяем, выиграл ли игрок
         if (updatedRightLetters.length === word.length) {
-          toggleGameOverModal();
+          toggleGameOverModal(true);
         }
 
         return updatedRightLetters;
@@ -62,7 +64,7 @@ const GamePage = () => {
 
         // Проверяем, проиграл ли игрок
         if (newTries === 0) {
-          toggleGameOverModal();
+          toggleGameOverModal(false);
         }
 
         return newTries;
@@ -85,10 +87,10 @@ const GamePage = () => {
   });
 
   return (
-    <div>
+    <>
+      <GameOverModal isOpen={isGameOverModalOpen} word={word} hasWon={hasWon} />
       <Container>
-        {/*<p>Загаданное слово: {word}</p>*/}
-        <p>Попыток осталось: {triesLeft}</p>
+        <p className={styles.tries}>Попыток осталось: {triesLeft}</p>
         <div className={styles.wrongLetters}>
           {wrongLetters.map((letter, index) => (
             <Letter key={index} type="wrong" letter={letter} />
@@ -155,7 +157,7 @@ const GamePage = () => {
           )}
         </div>
       </Container>
-    </div>
+    </>
   );
 };
 
