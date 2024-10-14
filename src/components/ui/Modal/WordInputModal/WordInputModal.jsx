@@ -39,6 +39,7 @@ const WordInputModal = ({
         placeholder="Ваше слово"
         value={wordToGuess}
         onChange={(e) => validateWord(e.target.value)}
+        onKeyDown={(e) => e.key === 'Enter' && isValidWord && startGame(false)}
         isValid={isValidWord}
         errorText="Введите слово без пробелов, цифр и других спецсимволов"
       />
