@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import styles from './WordInputModal.module.scss';
 
@@ -15,6 +15,8 @@ const WordInputModal = ({
 }) => {
   const [isValidWord, setIsValidWord] = useState(false);
 
+  const wordInputRef = useRef(null);
+
   const validateWord = (word) => {
     const regex = /^[А-Яа-яЁё]+$/;
 
@@ -27,6 +29,12 @@ const WordInputModal = ({
     setWordToGuess(word);
   };
 
+  useEffect(() => {
+    if (isOpen) {
+      wordInputRef.current.focus();
+    }
+  }, [isOpen]);
+
   return (
     <Modal isOpen={isOpen} toggleModal={toggleModal}>
       <Button className={styles.closeButton} onClick={(e) => toggleModal()}>
@@ -34,6 +42,7 @@ const WordInputModal = ({
       </Button>
       <p className={styles.title}>Какое слово загадать?</p>
       <Input
+        ref={wordInputRef}
         className={styles.input}
         type="text"
         placeholder="Ваше слово"
