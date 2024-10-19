@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import styles from './Input.module.scss';
 
-const Input = ({ className, isValid, errorText, ...props }) => {
+const Input = forwardRef(({ className, isValid, errorText, ...props }, ref) => {
   return (
     <div className={className}>
       <input
+        ref={ref}
         className={`${styles.input} ${isValid ? '' : styles.invalid}`}
         {...props}
       />
@@ -14,6 +15,6 @@ const Input = ({ className, isValid, errorText, ...props }) => {
       </p>
     </div>
   );
-};
+});
 
 export default Input;
