@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { getRandomWord } from '../../utils/Dictionary';
+
 import styles from './HomePage.module.scss';
 
 import Leaf from '../../img/leaf.png';
@@ -21,9 +23,9 @@ const HomePage = () => {
 
   const startGame = (withRandomWord) => {
     if (withRandomWord) {
-      // TODO: Сгенерировать слово и перекинуть на GamePage с ним
+      const randWord = getRandomWord();
 
-      navigate('/game', { state: { word: 'Случайное' } });
+      navigate('/game', { state: { word: randWord } });
       return;
     }
 
@@ -46,11 +48,7 @@ const HomePage = () => {
             <p className={styles.logoText}>Лист</p>
           </div>
           <div className={styles.buttons}>
-            <Button
-              className={styles.button}
-              onClick={(e) => startGame(true)}
-              disabled
-            >
+            <Button className={styles.button} onClick={(e) => startGame(true)}>
               Случайное слово
             </Button>
             <Button
