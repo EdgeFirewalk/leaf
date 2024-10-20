@@ -79,7 +79,9 @@ const GamePage = () => {
       return;
     }
 
-    setWord(location.state.word.toUpperCase());
+    const newWord = location.state.word.toUpperCase();
+    setWord(newWord);
+    setTriesLeft(newWord.length);
   }, [location.state]);
 
   const correctPositions = new Array(word.length).fill(false);
