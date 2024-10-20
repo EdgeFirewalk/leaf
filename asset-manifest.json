@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "/leaf/static/css/main.6a119431.css",
-    "main.js": "/leaf/static/js/main.e47c04b7.js",
-    "static/media/nutri-pipets.png": "/leaf/static/media/nutri-pipets.d8cdecdc89dab68b8f0d.png",
-    "static/media/party-popper.png": "/leaf/static/media/party-popper.caf8d81e3e900fc95895.png",
-    "static/media/leaf.png": "/leaf/static/media/leaf.d9e5377521ec62be678f.png",
+    "main.css": "/leaf/static/css/main.990c7be0.css",
+    "main.js": "/leaf/static/js/main.4d5f6b07.js",
+    "static/media/nutri-pipets.png": "/leaf/static/media/nutri-pipets.b0b754754d365b644d50.png",
+    "static/media/party-popper.png": "/leaf/static/media/party-popper.8a009d9bc70558f1bc22.png",
     "index.html": "/leaf/index.html",
-    "main.6a119431.css.map": "/leaf/static/css/main.6a119431.css.map",
-    "main.e47c04b7.js.map": "/leaf/static/js/main.e47c04b7.js.map"
+    "main.990c7be0.css.map": "/leaf/static/css/main.990c7be0.css.map",
+    "main.4d5f6b07.js.map": "/leaf/static/js/main.4d5f6b07.js.map"
   },
   "entrypoints": [
-    "static/css/main.6a119431.css",
-    "static/js/main.e47c04b7.js"
+    "static/css/main.990c7be0.css",
+    "static/js/main.4d5f6b07.js"
   ]
 }
