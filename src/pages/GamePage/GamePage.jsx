@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import styles from './GamePage.module.scss';
 
@@ -9,6 +9,7 @@ import Letter from '../../components/ui/Letter/Letter';
 
 const GamePage = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const [word, setWord] = useState('');
   const [triesLeft, setTriesLeft] = useState(5);
@@ -74,7 +75,7 @@ const GamePage = () => {
 
   useEffect(() => {
     if (!location.state) {
-      // TODO: Перенаправить на ErrorPage
+      navigate('/error');
       return;
     }
 
