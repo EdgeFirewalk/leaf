@@ -91,7 +91,13 @@ const GamePage = () => {
       <GameOverModal isOpen={isGameOverModalOpen} word={word} hasWon={hasWon} />
       <Container>
         <p className={styles.tries}>Попыток осталось: {triesLeft}</p>
-        <div className={styles.wrongLetters}>
+        <div
+          className={styles.wrongLetters}
+          style={
+            // Этот трюк со стилями нужен, чтобы анимировать высоту блока с неправильными буквами
+            wrongLetters.length ? { maxHeight: '500px' } : { maxHeight: 0 }
+          }
+        >
           {wrongLetters.map((letter, index) => (
             <Letter key={index} type="wrong" letter={letter} />
           ))}

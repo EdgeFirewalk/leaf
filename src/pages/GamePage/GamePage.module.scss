@@ -8,6 +8,9 @@
   padding-bottom: 5px;
 
   border-bottom: 1px solid var(--lightBrown);
+
+  transition-property: max-height;
+  transition-duration: 1s;
 }
 
 .word {
