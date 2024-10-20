@@ -1,3 +1,44 @@
+@keyframes wrong {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(8px);
+  }
+  50% {
+    transform: translateX(-8px);
+  }
+  75% {
+    transform: translateX(8px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes right {
+  0% {
+    scale: 0;
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes hidden {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+    scale: 1;
+  }
+  100% {
+    transform: translateY(-50vh);
+    opacity: 0;
+    scale: 0;
+  }
+}
+
 .letter {
   width: 47px;
   height: 47px;
@@ -15,11 +56,12 @@
   &.wrong {
     color: var(--red);
     border: 1px solid var(--red);
+
+    animation: wrong 0.2s;
   }
 
   &.right {
-    //color: #dadada;
-    //border: 1px solid #dadada;
+    animation: right 0.1s;
   }
 
   &.underline {
@@ -27,7 +69,8 @@
   }
 
   &.hidden {
-    visibility: hidden;
     pointer-events: none;
+
+    animation: hidden 0.5s both;
   }
 }
