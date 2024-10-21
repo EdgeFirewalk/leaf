@@ -3,7 +3,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 import styles from './GamePage.module.scss';
 
-import GameOverModal from '../../components/ui/Modal/GameOverModal/GameOverModal';
+import WinModal from '../../components/ui/Modal/GameEndingModals/WinModal';
+import GameOverModal from '../../components/ui/Modal/GameEndingModals/GameOverModal';
 import Container from '../../components/layout/Container/Container';
 import Letter from '../../components/ui/Letter/Letter';
 
@@ -13,17 +14,16 @@ const GamePage = () => {
 
   const [word, setWord] = useState('');
   const [triesLeft, setTriesLeft] = useState(5);
-  const [hasWon, setHasWon] = useState(null);
 
   const [checkedLetters, setCheckedLetters] = useState([]);
   const [rightLetters, setRightLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
 
+  const [isWinModalOpen, setIsWinModalOpen] = useState(false);
   const [isGameOverModalOpen, setIsGameOverModalOpen] = useState(false);
 
-  const toggleGameOverModal = (hasWonTheGame) => {
-    setHasWon(hasWonTheGame);
-    setIsGameOverModalOpen(true);
+  const toggleGameEndingModal = (hasWonTheGame) => {
+    hasWonTheGame ? setIsWinModalOpen(true) : setIsGameOverModalOpen(true);
   };
 
   const checkLetterInWord = (letter) => {
@@ -45,7 +45,7 @@ const GamePage = () => {
 
         // Проверяем, выиграл ли игрок
         if (updatedRightLetters.length === word.length) {
-          toggleGameOverModal(true);
+          toggleGameEndingModal(true);
         }
 
         return updatedRightLetters;
@@ -65,7 +65,7 @@ const GamePage = () => {
 
         // Проверяем, проиграл ли игрок
         if (newTries === 0) {
-          toggleGameOverModal(false);
+          toggleGameEndingModal(false);
         }
 
         return newTries;
@@ -91,7 +91,8 @@ const GamePage = () => {
 
   return (
     <>
-      <GameOverModal isOpen={isGameOverModalOpen} word={word} hasWon={hasWon} />
+      <WinModal isOpen={isWinModalOpen} word={word}></WinModal>
+      <GameOverModal isOpen={isGameOverModalOpen} word={word} />
       <Container>
         <p className={styles.tries}>Попыток осталось: {triesLeft}</p>
         <div
