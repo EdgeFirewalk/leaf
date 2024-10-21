@@ -15,7 +15,7 @@ const ErrorPage = () => {
     <>
       <Container>
         <div className={styles.page}>
-          <img className={styles.img} src={PipetsImg} alt="Error img" />
+          <img className={styles.img} src={PipetsImg} alt="Confused rat" />
           <p className={styles.title}>404</p>
           <p className={styles.errText}>
             Кажется, игру не удалось запустить...
