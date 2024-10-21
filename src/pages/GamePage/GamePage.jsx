@@ -74,6 +74,8 @@ const GamePage = () => {
   };
 
   useEffect(() => {
+    // Если слова нет вообще, то кидаем на страницу ошибки
+    // Такое может произойти, если игрок просто так перейдёт на адрес /game
     if (!location.state) {
       navigate('/error');
       return;
@@ -81,7 +83,41 @@ const GamePage = () => {
 
     const newWord = location.state.word.toUpperCase();
     setWord(newWord);
-    setTriesLeft(newWord.length);
+
+    const wordLength = newWord.length;
+
+    /* БОЛЬШОЕ СПАСИБО ДУБИЦКОМУ КИРИЛЛУ ЗА ФИДБЕК ОБ ИГРЕ И СОВЕТЫ ПО РЕАЛИЗАЦИИ */
+    /* СЛЕДУЮЩЕГО АЛГОРИТМА ОПРЕДЕЛЕНИЯ КОЛИЧЕСТВА ПОПЫТОК НА СЛОВО */
+
+    // ====== Если слишком маленькое слово
+    if (wordLength <= 4) {
+      setTriesLeft(wordLength + 2);
+      return;
+    }
+
+    if (wordLength <= 6) {
+      setTriesLeft(wordLength);
+      return;
+    }
+
+    // ====== Если слово уже побольше
+    // Создаем объект для подсчета количества каждой буквы
+    const letterCount = {};
+    for (const letter of newWord) {
+      if (letterCount[letter]) {
+        letterCount[letter]++;
+      } else {
+        letterCount[letter] = 1;
+      }
+    }
+
+    // Подсчитываем количество уникальных букв
+    const uniqueLettersCount = Object.keys(letterCount).length;
+
+    // Вычисляем количество попыток (вычитаем из длины слова повторяющиеся буквы, чтобы не было слишком просто)
+    const triesLeft = wordLength - (wordLength - uniqueLettersCount);
+
+    setTriesLeft(triesLeft);
   }, [location.state]);
 
   const correctPositions = new Array(word.length).fill(false);
