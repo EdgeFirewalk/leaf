@@ -13,7 +13,7 @@ const GamePage = () => {
 
   const [word, setWord] = useState('');
   const [triesLeft, setTriesLeft] = useState(5);
-  const [hasWon, setHasWon] = useState(false);
+  const [hasWon, setHasWon] = useState(null);
 
   const [checkedLetters, setCheckedLetters] = useState([]);
   const [rightLetters, setRightLetters] = useState([]);
