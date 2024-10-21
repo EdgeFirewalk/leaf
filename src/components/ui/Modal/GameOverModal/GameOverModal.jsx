@@ -22,7 +22,7 @@ const GameOverModal = ({ isOpen, word, hasWon }) => {
         </>
       ) : (
         <>
-          <img className={styles.img} src={LooseIcon} alt="Party popper" />
+          <img className={styles.img} src={LooseIcon} alt="Sad face" />
           <p className={styles.title}>Поражение...</p>
           <p>Вы НЕ отгадали слово:</p>
         </>
