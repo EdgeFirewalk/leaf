@@ -49,6 +49,8 @@
   border: 1px solid var(--lightBrown);
   border-radius: 5px;
 
+  -webkit-tap-highlight-color: transparent;
+
   &.default {
     cursor: pointer;
   }

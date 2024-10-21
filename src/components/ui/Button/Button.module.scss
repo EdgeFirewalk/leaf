@@ -9,6 +9,8 @@
 
   cursor: pointer;
 
+  -webkit-tap-highlight-color: transparent;
+
   transition-property: color, background-color, border;
   transition-duration: 0.2s;
 
