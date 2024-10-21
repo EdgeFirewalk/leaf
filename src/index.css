@@ -9,6 +9,8 @@
 
   font-size: 18px;
   font-family: 'Comfortaa', sans-serif;
+
+  user-select: none;
 }
 
 body {
